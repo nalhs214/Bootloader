@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="file_read_write/file_read_write.vcxproj" Id="c5d4220f-d108-46c2-ac0e-1a1d3ea43a89" />
+</Solution>

@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\NUCODE\\ex\\sscanf_data_parsing\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF856E-0DA8-4B05-9EF2-1832965BE34A}|sscanf_data_parsing\\sscanf_data_parsing.vcxproj|C:\\Users\\USER\\Desktop\\NUCODE\\ex\\sscanf_data_parsing\\sscanf_data_parsing\\sscanf_data_parsing.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0BFF856E-0DA8-4B05-9EF2-1832965BE34A}|sscanf_data_parsing\\sscanf_data_parsing.vcxproj|solutionrelative:sscanf_data_parsing\\sscanf_data_parsing.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF856E-0DA8-4B05-9EF2-1832965BE34A}|sscanf_data_parsing\\sscanf_data_parsing.vcxproj|C:\\PROGRAM FILES (X86)\\WINDOWS KITS\\10\\INCLUDE\\10.0.26100.0\\UCRT\\STDIO.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "stdio.h",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\ucrt\\stdio.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\ucrt\\stdio.h",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\ucrt\\stdio.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\ucrt\\stdio.h",
+              "ViewState": "AgIAACsAAAAAAAAAAAAUwDsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-04-23T06:32:41.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "sscanf_data_parsing.cpp",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\NUCODE\\ex\\sscanf_data_parsing\\sscanf_data_parsing\\sscanf_data_parsing.cpp",
+              "RelativeDocumentMoniker": "sscanf_data_parsing\\sscanf_data_parsing.cpp",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\NUCODE\\ex\\sscanf_data_parsing\\sscanf_data_parsing\\sscanf_data_parsing.cpp",
+              "RelativeToolTip": "sscanf_data_parsing\\sscanf_data_parsing.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-23T06:30:04.016Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

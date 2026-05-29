@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="sscanf_data_parsing/sscanf_data_parsing.vcxproj" Id="0bff856e-0da8-4b05-9ef2-1832965be34a" />
+</Solution>
