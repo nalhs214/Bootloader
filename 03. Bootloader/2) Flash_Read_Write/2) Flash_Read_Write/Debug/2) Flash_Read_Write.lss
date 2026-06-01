@@ -1,0 +1,471 @@
+
+2) Flash_Read_Write.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800200  00800200  000002e0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000028c  0001fc00  0001fc00  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  000002e0  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000310  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000048  00000000  00000000  00000350  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000dc6  00000000  00000000  00000398  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000b2f  00000000  00000000  0000115e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000046e  00000000  00000000  00001c8d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000d0  00000000  00000000  000020fc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000057b  00000000  00000000  000021cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000369  00000000  00000000  00002747  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000038  00000000  00000000  00002ab0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+0001fc00 <__vectors>:
+   1fc00:	65 c0       	rjmp	.+202    	; 0x1fccc <__ctors_end>
+   1fc02:	00 00       	nop
+   1fc04:	6b c0       	rjmp	.+214    	; 0x1fcdc <__bad_interrupt>
+   1fc06:	00 00       	nop
+   1fc08:	69 c0       	rjmp	.+210    	; 0x1fcdc <__bad_interrupt>
+   1fc0a:	00 00       	nop
+   1fc0c:	67 c0       	rjmp	.+206    	; 0x1fcdc <__bad_interrupt>
+   1fc0e:	00 00       	nop
+   1fc10:	65 c0       	rjmp	.+202    	; 0x1fcdc <__bad_interrupt>
+   1fc12:	00 00       	nop
+   1fc14:	63 c0       	rjmp	.+198    	; 0x1fcdc <__bad_interrupt>
+   1fc16:	00 00       	nop
+   1fc18:	61 c0       	rjmp	.+194    	; 0x1fcdc <__bad_interrupt>
+   1fc1a:	00 00       	nop
+   1fc1c:	5f c0       	rjmp	.+190    	; 0x1fcdc <__bad_interrupt>
+   1fc1e:	00 00       	nop
+   1fc20:	5d c0       	rjmp	.+186    	; 0x1fcdc <__bad_interrupt>
+   1fc22:	00 00       	nop
+   1fc24:	5b c0       	rjmp	.+182    	; 0x1fcdc <__bad_interrupt>
+   1fc26:	00 00       	nop
+   1fc28:	59 c0       	rjmp	.+178    	; 0x1fcdc <__bad_interrupt>
+   1fc2a:	00 00       	nop
+   1fc2c:	57 c0       	rjmp	.+174    	; 0x1fcdc <__bad_interrupt>
+   1fc2e:	00 00       	nop
+   1fc30:	55 c0       	rjmp	.+170    	; 0x1fcdc <__bad_interrupt>
+   1fc32:	00 00       	nop
+   1fc34:	53 c0       	rjmp	.+166    	; 0x1fcdc <__bad_interrupt>
+   1fc36:	00 00       	nop
+   1fc38:	51 c0       	rjmp	.+162    	; 0x1fcdc <__bad_interrupt>
+   1fc3a:	00 00       	nop
+   1fc3c:	4f c0       	rjmp	.+158    	; 0x1fcdc <__bad_interrupt>
+   1fc3e:	00 00       	nop
+   1fc40:	4d c0       	rjmp	.+154    	; 0x1fcdc <__bad_interrupt>
+   1fc42:	00 00       	nop
+   1fc44:	4b c0       	rjmp	.+150    	; 0x1fcdc <__bad_interrupt>
+   1fc46:	00 00       	nop
+   1fc48:	49 c0       	rjmp	.+146    	; 0x1fcdc <__bad_interrupt>
+   1fc4a:	00 00       	nop
+   1fc4c:	47 c0       	rjmp	.+142    	; 0x1fcdc <__bad_interrupt>
+   1fc4e:	00 00       	nop
+   1fc50:	45 c0       	rjmp	.+138    	; 0x1fcdc <__bad_interrupt>
+   1fc52:	00 00       	nop
+   1fc54:	43 c0       	rjmp	.+134    	; 0x1fcdc <__bad_interrupt>
+   1fc56:	00 00       	nop
+   1fc58:	41 c0       	rjmp	.+130    	; 0x1fcdc <__bad_interrupt>
+   1fc5a:	00 00       	nop
+   1fc5c:	3f c0       	rjmp	.+126    	; 0x1fcdc <__bad_interrupt>
+   1fc5e:	00 00       	nop
+   1fc60:	3d c0       	rjmp	.+122    	; 0x1fcdc <__bad_interrupt>
+   1fc62:	00 00       	nop
+   1fc64:	3b c0       	rjmp	.+118    	; 0x1fcdc <__bad_interrupt>
+   1fc66:	00 00       	nop
+   1fc68:	39 c0       	rjmp	.+114    	; 0x1fcdc <__bad_interrupt>
+   1fc6a:	00 00       	nop
+   1fc6c:	37 c0       	rjmp	.+110    	; 0x1fcdc <__bad_interrupt>
+   1fc6e:	00 00       	nop
+   1fc70:	35 c0       	rjmp	.+106    	; 0x1fcdc <__bad_interrupt>
+   1fc72:	00 00       	nop
+   1fc74:	33 c0       	rjmp	.+102    	; 0x1fcdc <__bad_interrupt>
+   1fc76:	00 00       	nop
+   1fc78:	31 c0       	rjmp	.+98     	; 0x1fcdc <__bad_interrupt>
+   1fc7a:	00 00       	nop
+   1fc7c:	2f c0       	rjmp	.+94     	; 0x1fcdc <__bad_interrupt>
+   1fc7e:	00 00       	nop
+   1fc80:	2d c0       	rjmp	.+90     	; 0x1fcdc <__bad_interrupt>
+   1fc82:	00 00       	nop
+   1fc84:	2b c0       	rjmp	.+86     	; 0x1fcdc <__bad_interrupt>
+   1fc86:	00 00       	nop
+   1fc88:	29 c0       	rjmp	.+82     	; 0x1fcdc <__bad_interrupt>
+   1fc8a:	00 00       	nop
+   1fc8c:	27 c0       	rjmp	.+78     	; 0x1fcdc <__bad_interrupt>
+   1fc8e:	00 00       	nop
+   1fc90:	25 c0       	rjmp	.+74     	; 0x1fcdc <__bad_interrupt>
+   1fc92:	00 00       	nop
+   1fc94:	23 c0       	rjmp	.+70     	; 0x1fcdc <__bad_interrupt>
+   1fc96:	00 00       	nop
+   1fc98:	21 c0       	rjmp	.+66     	; 0x1fcdc <__bad_interrupt>
+   1fc9a:	00 00       	nop
+   1fc9c:	1f c0       	rjmp	.+62     	; 0x1fcdc <__bad_interrupt>
+   1fc9e:	00 00       	nop
+   1fca0:	1d c0       	rjmp	.+58     	; 0x1fcdc <__bad_interrupt>
+   1fca2:	00 00       	nop
+   1fca4:	1b c0       	rjmp	.+54     	; 0x1fcdc <__bad_interrupt>
+   1fca6:	00 00       	nop
+   1fca8:	19 c0       	rjmp	.+50     	; 0x1fcdc <__bad_interrupt>
+   1fcaa:	00 00       	nop
+   1fcac:	17 c0       	rjmp	.+46     	; 0x1fcdc <__bad_interrupt>
+   1fcae:	00 00       	nop
+   1fcb0:	15 c0       	rjmp	.+42     	; 0x1fcdc <__bad_interrupt>
+   1fcb2:	00 00       	nop
+   1fcb4:	13 c0       	rjmp	.+38     	; 0x1fcdc <__bad_interrupt>
+   1fcb6:	00 00       	nop
+   1fcb8:	11 c0       	rjmp	.+34     	; 0x1fcdc <__bad_interrupt>
+   1fcba:	00 00       	nop
+   1fcbc:	0f c0       	rjmp	.+30     	; 0x1fcdc <__bad_interrupt>
+   1fcbe:	00 00       	nop
+   1fcc0:	0d c0       	rjmp	.+26     	; 0x1fcdc <__bad_interrupt>
+   1fcc2:	00 00       	nop
+   1fcc4:	0b c0       	rjmp	.+22     	; 0x1fcdc <__bad_interrupt>
+   1fcc6:	00 00       	nop
+   1fcc8:	09 c0       	rjmp	.+18     	; 0x1fcdc <__bad_interrupt>
+	...
+
+0001fccc <__ctors_end>:
+   1fccc:	11 24       	eor	r1, r1
+   1fcce:	1f be       	out	0x3f, r1	; 63
+   1fcd0:	cf ef       	ldi	r28, 0xFF	; 255
+   1fcd2:	d1 e2       	ldi	r29, 0x21	; 33
+   1fcd4:	de bf       	out	0x3e, r29	; 62
+   1fcd6:	cd bf       	out	0x3d, r28	; 61
+   1fcd8:	80 d0       	rcall	.+256    	; 0x1fdda <main>
+   1fcda:	d6 c0       	rjmp	.+428    	; 0x1fe88 <_exit>
+
+0001fcdc <__bad_interrupt>:
+   1fcdc:	91 cf       	rjmp	.-222    	; 0x1fc00 <__vectors>
+
+0001fcde <flash_erase>:
+#define PAGE_SIZE 256
+#define TEST_ADDR  0x0000UL
+
+void flash_erase(uint32_t addr)
+{
+	boot_page_erase(addr);
+   1fcde:	23 e0       	ldi	r18, 0x03	; 3
+   1fce0:	fb 01       	movw	r30, r22
+   1fce2:	80 93 5b 00 	sts	0x005B, r24	; 0x80005b <__TEXT_REGION_LENGTH__+0x7e005b>
+   1fce6:	20 93 57 00 	sts	0x0057, r18	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fcea:	e8 95       	spm
+	while(SPMCSR & (1 << SPMEN)); //SPM 실행 완료 0
+   1fcec:	07 b6       	in	r0, 0x37	; 55
+   1fcee:	00 fc       	sbrc	r0, 0
+   1fcf0:	fd cf       	rjmp	.-6      	; 0x1fcec <flash_erase+0xe>
+	boot_rww_enable();
+   1fcf2:	81 e1       	ldi	r24, 0x11	; 17
+   1fcf4:	80 93 57 00 	sts	0x0057, r24	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fcf8:	e8 95       	spm
+   1fcfa:	08 95       	ret
+
+0001fcfc <flash_fill>:
+}
+
+// 1byte 옆으로 밀어서 1word씩 넣기
+void flash_fill(uint32_t addr, uint8_t *buf)
+{
+   1fcfc:	8f 92       	push	r8
+   1fcfe:	9f 92       	push	r9
+   1fd00:	af 92       	push	r10
+   1fd02:	bf 92       	push	r11
+   1fd04:	cf 92       	push	r12
+   1fd06:	df 92       	push	r13
+   1fd08:	ef 92       	push	r14
+   1fd0a:	ff 92       	push	r15
+   1fd0c:	4b 01       	movw	r8, r22
+   1fd0e:	5c 01       	movw	r10, r24
+   1fd10:	da 01       	movw	r26, r20
+	for(uint16_t i = 0; i < PAGE_SIZE; i += 2){
+   1fd12:	20 e0       	ldi	r18, 0x00	; 0
+   1fd14:	30 e0       	ldi	r19, 0x00	; 0
+   1fd16:	1a c0       	rjmp	.+52     	; 0x1fd4c <flash_fill+0x50>
+		uint16_t word = buf[i] | ((uint16_t)buf[i+1] << 8);		
+   1fd18:	fd 01       	movw	r30, r26
+   1fd1a:	e2 0f       	add	r30, r18
+   1fd1c:	f3 1f       	adc	r31, r19
+   1fd1e:	40 81       	ld	r20, Z
+   1fd20:	81 81       	ldd	r24, Z+1	; 0x01
+   1fd22:	90 e0       	ldi	r25, 0x00	; 0
+   1fd24:	98 2f       	mov	r25, r24
+   1fd26:	88 27       	eor	r24, r24
+   1fd28:	84 2b       	or	r24, r20
+		boot_page_fill(addr + i, word);
+   1fd2a:	75 01       	movw	r14, r10
+   1fd2c:	64 01       	movw	r12, r8
+   1fd2e:	c2 0e       	add	r12, r18
+   1fd30:	d3 1e       	adc	r13, r19
+   1fd32:	e1 1c       	adc	r14, r1
+   1fd34:	f1 1c       	adc	r15, r1
+   1fd36:	51 e0       	ldi	r21, 0x01	; 1
+   1fd38:	0c 01       	movw	r0, r24
+   1fd3a:	f6 01       	movw	r30, r12
+   1fd3c:	e0 92 5b 00 	sts	0x005B, r14	; 0x80005b <__TEXT_REGION_LENGTH__+0x7e005b>
+   1fd40:	50 93 57 00 	sts	0x0057, r21	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fd44:	e8 95       	spm
+   1fd46:	11 24       	eor	r1, r1
+}
+
+// 1byte 옆으로 밀어서 1word씩 넣기
+void flash_fill(uint32_t addr, uint8_t *buf)
+{
+	for(uint16_t i = 0; i < PAGE_SIZE; i += 2){
+   1fd48:	2e 5f       	subi	r18, 0xFE	; 254
+   1fd4a:	3f 4f       	sbci	r19, 0xFF	; 255
+   1fd4c:	2f 3f       	cpi	r18, 0xFF	; 255
+   1fd4e:	31 05       	cpc	r19, r1
+   1fd50:	19 f3       	breq	.-58     	; 0x1fd18 <flash_fill+0x1c>
+   1fd52:	10 f3       	brcs	.-60     	; 0x1fd18 <flash_fill+0x1c>
+		uint16_t word = buf[i] | ((uint16_t)buf[i+1] << 8);		
+		boot_page_fill(addr + i, word);
+	}
+}
+   1fd54:	ff 90       	pop	r15
+   1fd56:	ef 90       	pop	r14
+   1fd58:	df 90       	pop	r13
+   1fd5a:	cf 90       	pop	r12
+   1fd5c:	bf 90       	pop	r11
+   1fd5e:	af 90       	pop	r10
+   1fd60:	9f 90       	pop	r9
+   1fd62:	8f 90       	pop	r8
+   1fd64:	08 95       	ret
+
+0001fd66 <flash_write>:
+
+void flash_write(uint32_t addr)
+{
+	boot_page_write(addr);
+   1fd66:	25 e0       	ldi	r18, 0x05	; 5
+   1fd68:	fb 01       	movw	r30, r22
+   1fd6a:	80 93 5b 00 	sts	0x005B, r24	; 0x80005b <__TEXT_REGION_LENGTH__+0x7e005b>
+   1fd6e:	20 93 57 00 	sts	0x0057, r18	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fd72:	e8 95       	spm
+	while(SPMCSR & (1 << SPMEN));
+   1fd74:	07 b6       	in	r0, 0x37	; 55
+   1fd76:	00 fc       	sbrc	r0, 0
+   1fd78:	fd cf       	rjmp	.-6      	; 0x1fd74 <flash_write+0xe>
+	//boot_spm_busy_wait();
+	boot_rww_enable();
+   1fd7a:	81 e1       	ldi	r24, 0x11	; 17
+   1fd7c:	80 93 57 00 	sts	0x0057, r24	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fd80:	e8 95       	spm
+   1fd82:	08 95       	ret
+
+0001fd84 <flash_page_write>:
+}
+
+void flash_page_write(uint32_t addr, uint8_t *buf)
+{
+   1fd84:	cf 92       	push	r12
+   1fd86:	df 92       	push	r13
+   1fd88:	ef 92       	push	r14
+   1fd8a:	ff 92       	push	r15
+   1fd8c:	cf 93       	push	r28
+   1fd8e:	df 93       	push	r29
+   1fd90:	6b 01       	movw	r12, r22
+   1fd92:	7c 01       	movw	r14, r24
+   1fd94:	ea 01       	movw	r28, r20
+	cli();
+   1fd96:	f8 94       	cli
+	
+	flash_erase(addr);
+   1fd98:	a2 df       	rcall	.-188    	; 0x1fcde <flash_erase>
+	while(SPMCSR & (1 << SPMEN));	
+   1fd9a:	07 b6       	in	r0, 0x37	; 55
+   1fd9c:	00 fc       	sbrc	r0, 0
+   1fd9e:	fd cf       	rjmp	.-6      	; 0x1fd9a <flash_page_write+0x16>
+	
+	flash_fill(addr, buf);
+   1fda0:	ae 01       	movw	r20, r28
+   1fda2:	c7 01       	movw	r24, r14
+   1fda4:	b6 01       	movw	r22, r12
+   1fda6:	aa df       	rcall	.-172    	; 0x1fcfc <flash_fill>
+	flash_write(addr);
+   1fda8:	c7 01       	movw	r24, r14
+   1fdaa:	b6 01       	movw	r22, r12
+   1fdac:	dc df       	rcall	.-72     	; 0x1fd66 <flash_write>
+	
+	sei();
+   1fdae:	78 94       	sei
+}
+   1fdb0:	df 91       	pop	r29
+   1fdb2:	cf 91       	pop	r28
+   1fdb4:	ff 90       	pop	r15
+   1fdb6:	ef 90       	pop	r14
+   1fdb8:	df 90       	pop	r13
+   1fdba:	cf 90       	pop	r12
+   1fdbc:	08 95       	ret
+
+0001fdbe <make_test_data>:
+
+void make_test_data(uint8_t *buf)
+{
+	for (uint16_t i = 0; i < PAGE_SIZE; i++) {
+   1fdbe:	20 e0       	ldi	r18, 0x00	; 0
+   1fdc0:	30 e0       	ldi	r19, 0x00	; 0
+   1fdc2:	06 c0       	rjmp	.+12     	; 0x1fdd0 <make_test_data+0x12>
+		buf[i] = (uint8_t)(i & 0xFF);
+   1fdc4:	fc 01       	movw	r30, r24
+   1fdc6:	e2 0f       	add	r30, r18
+   1fdc8:	f3 1f       	adc	r31, r19
+   1fdca:	20 83       	st	Z, r18
+	sei();
+}
+
+void make_test_data(uint8_t *buf)
+{
+	for (uint16_t i = 0; i < PAGE_SIZE; i++) {
+   1fdcc:	2f 5f       	subi	r18, 0xFF	; 255
+   1fdce:	3f 4f       	sbci	r19, 0xFF	; 255
+   1fdd0:	2f 3f       	cpi	r18, 0xFF	; 255
+   1fdd2:	31 05       	cpc	r19, r1
+   1fdd4:	b9 f3       	breq	.-18     	; 0x1fdc4 <make_test_data+0x6>
+   1fdd6:	b0 f3       	brcs	.-20     	; 0x1fdc4 <make_test_data+0x6>
+		buf[i] = (uint8_t)(i & 0xFF);
+	}
+}
+   1fdd8:	08 95       	ret
+
+0001fdda <main>:
+
+int main(void)
+{
+   1fdda:	cf 93       	push	r28
+   1fddc:	df 93       	push	r29
+   1fdde:	cd b7       	in	r28, 0x3d	; 61
+   1fde0:	de b7       	in	r29, 0x3e	; 62
+   1fde2:	da 95       	dec	r29
+   1fde4:	0f b6       	in	r0, 0x3f	; 63
+   1fde6:	f8 94       	cli
+   1fde8:	de bf       	out	0x3e, r29	; 62
+   1fdea:	0f be       	out	0x3f, r0	; 63
+   1fdec:	cd bf       	out	0x3d, r28	; 61
+	DDRC = 0xFF;
+   1fdee:	8f ef       	ldi	r24, 0xFF	; 255
+   1fdf0:	87 b9       	out	0x07, r24	; 7
+	
+    /* Replace with your application code */
+    for(uint8_t i = 0; i < 3; i++)
+   1fdf2:	80 e0       	ldi	r24, 0x00	; 0
+   1fdf4:	16 c0       	rjmp	.+44     	; 0x1fe22 <main+0x48>
+    {
+		PORTC = 0x0F;
+   1fdf6:	9f e0       	ldi	r25, 0x0F	; 15
+   1fdf8:	98 b9       	out	0x08, r25	; 8
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+   1fdfa:	2f ef       	ldi	r18, 0xFF	; 255
+   1fdfc:	39 e6       	ldi	r19, 0x69	; 105
+   1fdfe:	98 e1       	ldi	r25, 0x18	; 24
+   1fe00:	21 50       	subi	r18, 0x01	; 1
+   1fe02:	30 40       	sbci	r19, 0x00	; 0
+   1fe04:	90 40       	sbci	r25, 0x00	; 0
+   1fe06:	e1 f7       	brne	.-8      	; 0x1fe00 <main+0x26>
+   1fe08:	00 c0       	rjmp	.+0      	; 0x1fe0a <main+0x30>
+   1fe0a:	00 00       	nop
+		_delay_ms(500);
+		PORTC = 0x00;
+   1fe0c:	18 b8       	out	0x08, r1	; 8
+   1fe0e:	2f ef       	ldi	r18, 0xFF	; 255
+   1fe10:	39 e6       	ldi	r19, 0x69	; 105
+   1fe12:	98 e1       	ldi	r25, 0x18	; 24
+   1fe14:	21 50       	subi	r18, 0x01	; 1
+   1fe16:	30 40       	sbci	r19, 0x00	; 0
+   1fe18:	90 40       	sbci	r25, 0x00	; 0
+   1fe1a:	e1 f7       	brne	.-8      	; 0x1fe14 <main+0x3a>
+   1fe1c:	00 c0       	rjmp	.+0      	; 0x1fe1e <main+0x44>
+   1fe1e:	00 00       	nop
+int main(void)
+{
+	DDRC = 0xFF;
+	
+    /* Replace with your application code */
+    for(uint8_t i = 0; i < 3; i++)
+   1fe20:	8f 5f       	subi	r24, 0xFF	; 255
+   1fe22:	83 30       	cpi	r24, 0x03	; 3
+   1fe24:	40 f3       	brcs	.-48     	; 0x1fdf6 <main+0x1c>
+   1fe26:	2f ef       	ldi	r18, 0xFF	; 255
+   1fe28:	39 e6       	ldi	r19, 0x69	; 105
+   1fe2a:	88 e1       	ldi	r24, 0x18	; 24
+   1fe2c:	21 50       	subi	r18, 0x01	; 1
+   1fe2e:	30 40       	sbci	r19, 0x00	; 0
+   1fe30:	80 40       	sbci	r24, 0x00	; 0
+   1fe32:	e1 f7       	brne	.-8      	; 0x1fe2c <main+0x52>
+   1fe34:	00 c0       	rjmp	.+0      	; 0x1fe36 <main+0x5c>
+   1fe36:	00 00       	nop
+		_delay_ms(500);
+    }
+	_delay_ms(500);
+	
+	uint8_t test_buf[PAGE_SIZE];
+	make_test_data(test_buf);
+   1fe38:	ce 01       	movw	r24, r28
+   1fe3a:	01 96       	adiw	r24, 0x01	; 1
+   1fe3c:	c0 df       	rcall	.-128    	; 0x1fdbe <make_test_data>
+	
+
+	cli();
+   1fe3e:	f8 94       	cli
+	boot_page_erase(TEST_ADDR);
+   1fe40:	40 e0       	ldi	r20, 0x00	; 0
+   1fe42:	50 e0       	ldi	r21, 0x00	; 0
+   1fe44:	ba 01       	movw	r22, r20
+   1fe46:	83 e0       	ldi	r24, 0x03	; 3
+   1fe48:	fa 01       	movw	r30, r20
+   1fe4a:	60 93 5b 00 	sts	0x005B, r22	; 0x80005b <__TEXT_REGION_LENGTH__+0x7e005b>
+   1fe4e:	80 93 57 00 	sts	0x0057, r24	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fe52:	e8 95       	spm
+	while(SPMCSR & (1 << SPMEN)); //SPM 실행 완료 0
+   1fe54:	07 b6       	in	r0, 0x37	; 55
+   1fe56:	00 fc       	sbrc	r0, 0
+   1fe58:	fd cf       	rjmp	.-6      	; 0x1fe54 <main+0x7a>
+	boot_rww_enable();
+   1fe5a:	81 e1       	ldi	r24, 0x11	; 17
+   1fe5c:	80 93 57 00 	sts	0x0057, r24	; 0x800057 <__TEXT_REGION_LENGTH__+0x7e0057>
+   1fe60:	e8 95       	spm
+	sei();
+   1fe62:	78 94       	sei
+
+	
+		
+	flash_page_write(TEST_ADDR, test_buf);
+   1fe64:	ae 01       	movw	r20, r28
+   1fe66:	4f 5f       	subi	r20, 0xFF	; 255
+   1fe68:	5f 4f       	sbci	r21, 0xFF	; 255
+   1fe6a:	60 e0       	ldi	r22, 0x00	; 0
+   1fe6c:	70 e0       	ldi	r23, 0x00	; 0
+   1fe6e:	cb 01       	movw	r24, r22
+   1fe70:	89 df       	rcall	.-238    	; 0x1fd84 <flash_page_write>
+	
+}
+   1fe72:	80 e0       	ldi	r24, 0x00	; 0
+   1fe74:	90 e0       	ldi	r25, 0x00	; 0
+   1fe76:	d3 95       	inc	r29
+   1fe78:	0f b6       	in	r0, 0x3f	; 63
+   1fe7a:	f8 94       	cli
+   1fe7c:	de bf       	out	0x3e, r29	; 62
+   1fe7e:	0f be       	out	0x3f, r0	; 63
+   1fe80:	cd bf       	out	0x3d, r28	; 61
+   1fe82:	df 91       	pop	r29
+   1fe84:	cf 91       	pop	r28
+   1fe86:	08 95       	ret
+
+0001fe88 <_exit>:
+   1fe88:	f8 94       	cli
+
+0001fe8a <__stop_program>:
+   1fe8a:	ff cf       	rjmp	.-2      	; 0x1fe8a <__stop_program>

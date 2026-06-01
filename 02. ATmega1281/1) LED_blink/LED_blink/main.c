@@ -17,13 +17,18 @@ int main(void)
 
 	LED_DDR |= LED_ALL;
 	
+	uint8_t led = 0x01;
+	
     /* Replace with your application code */
     while (1)
     {
-		LED_PORT |= LED_ALL;
+		LED_PORT = led;
 		_delay_ms(500);
-		LED_PORT &= ~LED_ALL;
-		_delay_ms(1000);
+		led <<= 1;
+		
+		
+        if (led > 0x08)
+        led = 0x01;
     }
 	return 0;
 }
