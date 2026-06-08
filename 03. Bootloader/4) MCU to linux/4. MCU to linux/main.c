@@ -3,7 +3,7 @@
  *
  * Created: 2026-06-02 오전 8:52:17
  * Author : USER
- * MCU 에서 Linux로 데이터를 보내고, 받고를 할 수 있는지 테스트
+ * MCU 에서 Linux(vmware)로 데이터를 보내고, 받고를 할 수 있는지 테스트
  */
 
 #include <avr/io.h>
