@@ -23,7 +23,6 @@ void run_bootloader(void)
 	bl_data_packet_t pkt;
 	uint32_t write_addr = 0x0000;
 	
-
 	while(1)
 	{
 		uint8_t result = recv_packet(&pkt);
@@ -64,12 +63,11 @@ int main(void)
 	/* boot time out */
 	uint16_t timeout = 3000;
 	while(timeout--){
-		PORTC = 0x01;
+		PORTC = 0x05;
 		_delay_ms(1);
 		
-		
 		if(USART_Available()){
-			/* uart signal */ 
+			/* uart signal */
 			run_bootloader();
 			return 0;
 		}

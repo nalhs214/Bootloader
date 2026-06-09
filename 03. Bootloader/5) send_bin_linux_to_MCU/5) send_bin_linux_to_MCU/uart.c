@@ -8,7 +8,7 @@
 void UART_init(void)
 {
 	UBRR0H = 0;
-	UBRR0L = 103;   // 16MHz에서 19200 Baud Rate 설정  9600 = 103
+	UBRR0L = 51;   // 16MHz에서 19200 Baud Rate 설정  9600 = 103
 
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0);      // receiver, transmitter enable
 	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);    // 8bit character size, no parity

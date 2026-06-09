@@ -332,7 +332,6 @@ void run_bootloader(void)
    1e1d2:	d1 2c       	mov	r13, r1
    1e1d4:	76 01       	movw	r14, r12
 	
-
 	while(1)
 	{
 		uint8_t result = recv_packet(&pkt);
@@ -483,14 +482,13 @@ int main(void)
    1e26a:	3b e0       	ldi	r19, 0x0B	; 11
 	while(timeout--){
    1e26c:	0a c0       	rjmp	.+20     	; 0x1e282 <main+0x2a>
-		PORTC = 0x01;
-   1e26e:	81 e0       	ldi	r24, 0x01	; 1
+		PORTC = 0x05;
+   1e26e:	85 e0       	ldi	r24, 0x05	; 5
    1e270:	88 b9       	out	0x08, r24	; 8
    1e272:	80 ea       	ldi	r24, 0xA0	; 160
    1e274:	9f e0       	ldi	r25, 0x0F	; 15
    1e276:	01 97       	sbiw	r24, 0x01	; 1
 		_delay_ms(1);
-		
 		
 		if(USART_Available()){
    1e278:	f1 f7       	brne	.-4      	; 0x1e276 <main+0x1e>
@@ -502,9 +500,8 @@ int main(void)
 	uint16_t timeout = 3000;
 	while(timeout--){
    1e27c:	9e 01       	movw	r18, r28
-		PORTC = 0x01;
+		PORTC = 0x05;
 		_delay_ms(1);
-		
 		
 		if(USART_Available()){
    1e27e:	89 2b       	or	r24, r25
@@ -612,11 +609,11 @@ int main(void)
    1e2cc:	25 30       	cpi	r18, 0x05	; 5
    1e2ce:	20 f3       	brcs	.-56     	; 0x1e298 <main+0x40>
    1e2d0:	67 df       	rcall	.-306    	; 0x1e1a0 <jump_to_app>
+		PORTC = 0x05;
 		_delay_ms(1);
 		
-		
 		if(USART_Available()){
-			/* uart signal */ 
+			/* uart signal */
 			run_bootloader();
    1e2d2:	ff cf       	rjmp	.-2      	; 0x1e2d2 <main+0x7a>
    1e2d4:	6e df       	rcall	.-292    	; 0x1e1b2 <run_bootloader>
@@ -966,7 +963,7 @@ static int uart_putchar(char c, FILE *stream)
 	return 0;
 }
    1e462:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
-   1e466:	87 e6       	ldi	r24, 0x67	; 103
+   1e466:	83 e3       	ldi	r24, 0x33	; 51
    1e468:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
    1e46c:	88 e1       	ldi	r24, 0x18	; 24
    1e46e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>

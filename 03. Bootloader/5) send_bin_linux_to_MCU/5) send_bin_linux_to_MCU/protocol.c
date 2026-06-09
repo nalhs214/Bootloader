@@ -78,4 +78,4 @@ uint8_t recv_packet(bl_data_packet_t *pkt)
         return NAK;
 
     return pkt->msg_type;
-}
+    }

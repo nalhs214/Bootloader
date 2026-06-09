@@ -42,7 +42,4 @@ uint16_t crc16(uint8_t *data, uint16_t len);
 uint8_t recv_packet(bl_data_packet_t *pkt);
 
 
-
-
-
 #endif /* PROTOCOL_H_ */
