@@ -8,7 +8,6 @@
 
 #include <avr/io.h>
 #include <stdio.h>
-
 void UART_init(void);
 void UART_stdout_init(void);
 void USART_Transmit(unsigned char data);
