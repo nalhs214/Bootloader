@@ -509,10 +509,10 @@ END GROUP
  .debug_str     0x000004df       0x7e uart.o
                                 0x229 (size before relaxing)
 
-.debug_loc      0x00000000       0x5a
+.debug_loc      0x00000000       0x66
  *(.debug_loc)
- .debug_loc     0x00000000       0x13 main.o
- .debug_loc     0x00000013       0x47 uart.o
+ .debug_loc     0x00000000       0x1f main.o
+ .debug_loc     0x0000001f       0x47 uart.o
 
 .debug_macinfo
  *(.debug_macinfo)

@@ -15,7 +15,7 @@
 int main(void)
 {
 	UART_init();
-	
+
 	while(1)
 	{
 
@@ -24,6 +24,8 @@ int main(void)
         USART_Transmit(c);
 		USART_Transmit('\n');
 		USART_Transmit('\r');
+		
+		c = NULL;
 
 /*
 		USART_Transmit('H');

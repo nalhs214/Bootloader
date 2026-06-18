@@ -55,10 +55,16 @@ int main(void)
 {
 	DDRC  = 0xFF;
 	PORTC = 0x00;
-	UART_init();
-
+	UART0_init();
+/*
+	uint16_t timeout = 3000;
+	while(timeout--){
+		uint8_t c = USART_Receive(void);
+		if(c == 
+	}
+*/
 	/* Send Start Message */
-	USART_Transmit('R');
+//	USART_Transmit('R');
 	
 	/* boot time out */
 	uint16_t timeout = 3000;

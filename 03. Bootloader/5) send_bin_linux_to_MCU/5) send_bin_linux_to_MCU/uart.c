@@ -5,11 +5,11 @@
 #include "uart.h"
 
 /* ── UART 초기설정 ── */
-void UART_init(void)
+void UART0_init(void)
 {
 	UBRR0H = 0;
-	UBRR0L = 51;   // 16MHz에서 19200 Baud Rate 설정  9600 = 103
-
+	UBRR0L = 51;   // 16MHz에서 115200 Baud Rate 설정  9600 = 103 / 19200 = 51
+    //UCSR0A = (1 << U2X0);
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0);      // receiver, transmitter enable
 	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);    // 8bit character size, no parity
 }
