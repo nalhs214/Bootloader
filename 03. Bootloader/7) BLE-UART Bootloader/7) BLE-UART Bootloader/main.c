@@ -60,21 +60,6 @@ int main(void)
 	MCUCR = (1 << IVSEL);
     sei();
 
-	/* boot time out */
-	
-//while(1){
-	//if(USART1_Available()){
-		//uint8_t c = USART1_Receive();
-		///* HEX 두 자리로 출력 */
-		//char hex[] = "0123456789ABCDEF";
-		//USART0_Transmit(hex[c >> 4]);
-		//USART0_Transmit(hex[c & 0xF]);
-		//USART0_Transmit(' ');
-		//
-	//}
-//}
-
-
 	uint16_t timeout = 10000;
 	unsigned char c = 0;
 	while(timeout--){
@@ -90,16 +75,13 @@ int main(void)
 				USART1_FlushTx();
 				run_bootloader();
 
+				return 0;
 			}
 		}
 	}
-	
-	return 0;
 
 
-	
 	/* time out over, app memory have code */
-	/*
 	if(pgm_read_word(0x0000) != 0xFFFF){
 
 		for(uint8_t i = 0; i < 5; i++) {
@@ -111,7 +93,7 @@ int main(void)
 		
 		jump_to_app();
 	}
-*/
+
 	while(1);
 	return 0;
 }
