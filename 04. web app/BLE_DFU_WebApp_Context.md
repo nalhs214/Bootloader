@@ -375,3 +375,15 @@ chrome://flags/#enable-web-bluetooth → Enabled 확인
 
 *소스 기반: MCU__BLE-UART_Bootloader / Linux__BLE-UART_Bootloader*
 *타겟: ATmega1281, NU-HC (nRF54L05)*
+
+---
+
+## 10. 구현 확정 사항 (2026-06-19)
+
+- DATA와 END 패킷 모두 `DATA_LENGTH=256` (`0x00, 0x01` little-endian)
+- END 패킷도 256바이트 DATA 영역을 포함하며 `0xFF`로 채움 (전체 262바이트)
+- ACK (`0x06`)와 NAK (`0x15`)는 단일 바이트 Notify
+- ATmega1281 부트로더 영역은 4096 words (8192 bytes)
+- 애플리케이션 `.bin` 최대 크기는 120 KiB (122,880 bytes)
+- NU-HC는 NUS Service UUID를 광고하므로 service filter로 검색
+- 연결이 끊긴 뒤 페이지 단위 이어 보내기는 지원하지 않으며 다음 전송은 처음부터 시작

@@ -1,0 +1,216 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NU-HC DFU Sender</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#eef3ee;padding:24px;font-family:Arial,sans-serif;color:#111}
+.app{background:#f8faf8;min-height:640px;max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;border:0.5px solid #e0e8e0;font-family:Arial,sans-serif;box-shadow:0 12px 40px rgba(20,60,30,.08)}
+.topbar{background:#fff;border-bottom:0.5px solid #e0e8e0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.appname{font-size:14px;font-weight:500;color:#111;display:flex;align-items:center;gap:8px}
+.appname-dot{width:8px;height:8px;border-radius:50%;background:#16a34a}
+.ble-status{display:flex;align-items:center;gap:6px;font-size:12px;color:#16a34a;background:#f0fdf4;border:0.5px solid #bbf7d0;padding:4px 12px;border-radius:20px;font-weight:500}
+.ble-status .dot{width:6px;height:6px;border-radius:50%;background:#16a34a}
+.body{padding:16px;display:flex;flex-direction:column;gap:10px}
+.step-row{display:flex;align-items:center;padding:4px 0 8px}
+.step{display:flex;align-items:center;gap:5px;font-size:12px;color:#9ca3af}
+.step-num{width:20px;height:20px;border-radius:50%;border:0.5px solid #d1d5db;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#9ca3af;flex-shrink:0}
+.step-done .step-num{background:#f0fdf4;border-color:#86efac;color:#16a34a}
+.step-done{color:#16a34a}
+.step-active .step-num{background:#16a34a;border-color:#16a34a;color:#fff}
+.step-active{color:#111;font-weight:500}
+.step-line{flex:1;height:0.5px;background:#e5e7eb;margin:0 6px}
+.step-line-done{background:#86efac}
+.card{background:#fff;border:0.5px solid #e0e8e0;border-radius:10px;padding:14px 16px}
+.section-label{font-size:11px;color:#9ca3af;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px}
+.btn{height:34px;padding:0 14px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:0.5px solid #d1d5db;background:#fff;color:#374151}
+.btn:hover{background:#f9fafb}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-green{background:#16a34a;border-color:#16a34a;color:#fff}
+.btn-green:hover{background:#15803d}
+.btn-outline-green{border-color:#86efac;color:#16a34a;background:#f0fdf4}
+.btn-outline-green:hover{background:#dcfce7}
+.btn-ghost{border-color:transparent;color:#6b7280;background:transparent}
+.btn-sm{height:28px;padding:0 10px;font-size:12px}
+.divider{height:0.5px;background:#f0f4f0;margin:10px 0}
+.device-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;border:0.5px solid #e0e8e0;background:#f8faf8}
+.device-icon{width:32px;height:32px;border-radius:7px;background:#f0fdf4;border:0.5px solid #bbf7d0;display:flex;align-items:center;justify-content:center;color:#16a34a;font-size:16px;flex-shrink:0}
+.device-name{font-size:13px;font-weight:500;color:#111}
+.device-meta{font-size:11px;color:#9ca3af;margin-top:1px}
+.tag{font-size:11px;padding:2px 8px;border-radius:20px}
+.tag-green{background:#f0fdf4;color:#16a34a;border:0.5px solid #bbf7d0}
+.tag-gray{background:#f3f4f6;color:#6b7280}
+.ble-actions{display:flex;flex-direction:column;gap:8px}
+.last-device-box{background:#f0fdf4;border:0.5px solid #bbf7d0;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.last-label{font-size:11px;color:#15803d;font-weight:500;margin-bottom:2px}
+.last-name{font-size:13px;color:#111;font-weight:500}
+.file-zone{border:0.5px dashed #d1d5db;border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:12px;background:#f9fafb;cursor:pointer}
+.file-zone:hover{border-color:#86efac;background:#f0fdf4}
+.file-zone.drag-over{border-color:#16a34a;background:#f0fdf4;box-shadow:0 0 0 2px rgba(22,163,74,.12)}
+.file-zone.file-zone-disabled{cursor:not-allowed;opacity:.6}
+.file-icon{width:34px;height:34px;border-radius:7px;background:#f0fdf4;border:0.5px solid #bbf7d0;display:flex;align-items:center;justify-content:center;color:#16a34a;font-size:16px;flex-shrink:0}
+.file-name{font-size:13px;color:#111;font-weight:500}
+.file-meta{font-size:11px;color:#9ca3af;margin-top:2px}
+.progress-wrap{background:#f3f4f6;border-radius:6px;height:6px;overflow:hidden;margin:10px 0 6px}
+.progress-bar{height:100%;border-radius:6px;background:#16a34a;width:60%}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:#9ca3af}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.stat{background:#f8faf8;border-radius:8px;padding:10px 12px;border:0.5px solid #e0e8e0}
+.stat-val{font-size:18px;font-weight:500;color:#111}
+.stat-key{font-size:11px;color:#9ca3af;margin-top:2px}
+.log-area{background:#f8faf8;border:0.5px solid #e0e8e0;border-radius:8px;padding:10px 12px;font-family:var(--font-mono);font-size:11px;height:150px;overflow-y:auto;display:flex;flex-direction:column;gap:4px}
+.log-line{display:flex;gap:8px}
+.log-time{color:#d1d5db;flex-shrink:0}
+.log-ok{color:#16a34a}
+.log-err{color:#dc2626}
+.log-info{color:#2563eb}
+.log-hex{color:#6b7280}
+.log-warn{color:#d97706}
+.send-btn-wrap{padding-top:2px}
+.ti:before{display:inline-block;font-style:normal;font-size:.75em;font-weight:700}
+.ti-bluetooth:before{content:"BT"}.ti-refresh:before{content:"↻"}.ti-bluetooth-off:before{content:"BT×"}
+.ti-file:before{content:"BIN"}.ti-player-play:before{content:"▶"}.ti-square:before{content:"■"}
+.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+@media(max-width:600px){body{padding:0}.app{border-radius:0}.body{padding:12px}.step span{display:none}.stat-row{grid-template-columns:1fr}.topbar{padding:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="appname">
+      <span class="appname-dot"></span>
+      NU-HC DFU Sender
+    </div>
+    <div class="ble-status" id="connectionStatus">
+      <span class="dot"></span>
+      연결 안 됨
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="step-row">
+      <div class="step" id="stepConnect">
+        <div class="step-num">1</div>
+        <span>BLE 연결</span>
+      </div>
+      <div class="step-line" id="lineConnect"></div>
+      <div class="step" id="stepFile">
+        <div class="step-num">2</div>
+        <span>파일 선택</span>
+      </div>
+      <div class="step-line" id="lineFile"></div>
+      <div class="step" id="stepTransfer">
+        <div class="step-num">3</div>
+        <span>전송 중</span>
+      </div>
+      <div class="step-line" id="lineTransfer"></div>
+      <div class="step" id="stepComplete">
+        <div class="step-num">4</div>
+        <span>완료</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-label">BLE 연결</div>
+      <div class="ble-actions">
+
+        <div class="last-device-box">
+          <div class="device-icon">
+            <i class="ti ti-bluetooth" aria-hidden="true"></i>
+          </div>
+          <div style="flex:1">
+            <div class="last-label">마지막 연결 기기</div>
+            <div class="last-name" id="deviceName">연결 기록 없음</div>
+          </div>
+          <button class="btn btn-outline-green btn-sm" id="reconnectButton" disabled>
+            <i class="ti ti-refresh" style="font-size:13px" aria-hidden="true"></i>
+            재연결
+          </button>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px">
+          <button class="btn btn-green" id="connectButton">
+            <i class="ti ti-bluetooth" style="font-size:14px" aria-hidden="true"></i>
+            새 기기 검색
+          </button>
+          <button class="btn" id="disconnectButton" style="color:#dc2626;border-color:#fecaca" disabled>
+            <i class="ti ti-bluetooth-off" style="font-size:14px" aria-hidden="true"></i>
+            연결 해제
+          </button>
+          <span class="tag tag-gray" id="connectionTag" style="margin-left:auto">연결 안 됨</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-label">펌웨어 파일</div>
+      <div class="file-zone" id="fileZone" role="button" tabindex="0" aria-label="BIN 펌웨어 파일 선택 또는 드롭">
+        <input class="hidden-input" id="firmwareFile" type="file" accept=".bin,application/octet-stream">
+        <div class="file-icon">
+          <i class="ti ti-file" aria-hidden="true"></i>
+        </div>
+        <div style="flex:1">
+          <div class="file-name" id="fileName">BIN 파일을 선택하거나 여기에 드롭하세요</div>
+          <div class="file-meta" id="fileMeta">최대 120 KiB &nbsp;·&nbsp; 256 B/page</div>
+        </div>
+        <button class="btn btn-ghost btn-sm">변경</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-label">전송 진행</div>
+      <div class="progress-wrap">
+          <div class="progress-bar" id="progress" style="width:0%"></div>
+      </div>
+      <div class="progress-row">
+        <span id="progressPages">0 / 0 pages</span>
+        <span id="progressText" style="color:#6b7280;font-weight:500">대기 중</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-val" id="sentPages" style="color:#16a34a">0</div>
+          <div class="stat-key">전송 페이지</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="retryCount">0</div>
+          <div class="stat-key">재시도</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="elapsedTime">0.0s</div>
+          <div class="stat-key">경과 시간</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="send-btn-wrap" style="display:flex;gap:8px">
+        <button class="btn btn-green" id="startButton" style="flex:1;justify-content:center" disabled>
+          <i class="ti ti-player-play" style="font-size:14px" aria-hidden="true"></i>
+          전송 시작
+        </button>
+        <button class="btn" id="cancelButton" style="color:#dc2626;border-color:#fecaca" disabled>
+          <i class="ti ti-square" style="font-size:14px" aria-hidden="true"></i>
+          중단
+        </button>
+      </div>
+    </div>
+
+    <div class="card" style="padding-bottom:12px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <span class="section-label" style="margin-bottom:0">로그</span>
+        <button class="btn btn-ghost btn-sm" id="clearLogButton" style="font-size:11px">지우기</button>
+      </div>
+      <div class="log-area" id="log">
+        <div class="log-line"><span class="log-time">--:--:--</span><span class="log-info">준비됨</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

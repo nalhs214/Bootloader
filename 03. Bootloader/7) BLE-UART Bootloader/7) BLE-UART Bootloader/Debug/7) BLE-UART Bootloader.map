@@ -241,7 +241,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0001e000      0x6b6
+.text           0x0001e000      0x6b0
  *(.vectors)
  .vectors       0x0001e000       0xcc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/2.4.522/gcc/dev/atmega1281/avr51/crtatmega1281.o
                 0x0001e000                __vector_default
@@ -378,31 +378,31 @@ END GROUP
                 0x0001e596       0x5e uart.o
                 0x0001e596                __vector_37
  .text.UART0_init
-                0x0001e5f4       0x1e uart.o
+                0x0001e5f4       0x18 uart.o
                 0x0001e5f4                UART0_init
  .text.UART1_init
-                0x0001e612       0x18 uart.o
-                0x0001e612                UART1_init
+                0x0001e60c       0x18 uart.o
+                0x0001e60c                UART1_init
  .text.USART1_Transmit
-                0x0001e62a       0x2a uart.o
-                0x0001e62a                USART1_Transmit
+                0x0001e624       0x2a uart.o
+                0x0001e624                USART1_Transmit
  .text.USART1_Receive
-                0x0001e654       0x24 uart.o
-                0x0001e654                USART1_Receive
+                0x0001e64e       0x24 uart.o
+                0x0001e64e                USART1_Receive
  .text.USART1_Available
-                0x0001e678       0x14 uart.o
-                0x0001e678                USART1_Available
+                0x0001e672       0x14 uart.o
+                0x0001e672                USART1_Available
  .text.USART1_RxFlush
-                0x0001e68c       0x10 uart.o
-                0x0001e68c                USART1_RxFlush
+                0x0001e686       0x10 uart.o
+                0x0001e686                USART1_RxFlush
  .text.USART1_FlushTx
-                0x0001e69c       0x16 uart.o
-                0x0001e69c                USART1_FlushTx
-                0x0001e6b2                . = ALIGN (0x2)
+                0x0001e696       0x16 uart.o
+                0x0001e696                USART1_FlushTx
+                0x0001e6ac                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0001e6b2        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x0001e6b2                _exit
-                0x0001e6b2                exit
+ .fini9         0x0001e6ac        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x0001e6ac                _exit
+                0x0001e6ac                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -421,11 +421,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0001e6b2        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x0001e6ac        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x0001e6b6                _etext = .
+                0x0001e6b0                _etext = .
 
-.data           0x00800200        0x0 load address 0x0001e6b6
+.data           0x00800200        0x0 load address 0x0001e6b0
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -455,8 +455,8 @@ END GROUP
  .bss.rx0_buf   0x00800508      0x100 uart.o
  *(COMMON)
                 0x00800608                PROVIDE (__bss_end, .)
-                0x0001e6b6                __data_load_start = LOADADDR (.data)
-                0x0001e6b6                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0001e6b0                __data_load_start = LOADADDR (.data)
+                0x0001e6b0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800608        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -560,13 +560,13 @@ END GROUP
  .debug_abbrev  0x00000bc1      0x169 protocol.o
  .debug_abbrev  0x00000d2a      0x207 uart.o
 
-.debug_line     0x00000000      0xb2e
+.debug_line     0x00000000      0xb28
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1ca C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/2.4.522/gcc/dev/atmega1281/avr51/crtatmega1281.o
  .debug_line    0x000001ca      0x12b boot.o
  .debug_line    0x000002f5      0x2e8 main.o
  .debug_line    0x000005dd      0x21d protocol.o
- .debug_line    0x000007fa      0x334 uart.o
+ .debug_line    0x000007fa      0x32e uart.o
 
 .debug_frame    0x00000000      0x2bc
  *(.debug_frame)

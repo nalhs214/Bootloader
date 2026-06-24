@@ -38,7 +38,7 @@ uint16_t crc16(uint8_t *data, uint16_t len)
 /* ── 262바이트 수신 후 파싱 ── */
 uint8_t recv_packet(bl_data_packet_t *pkt)
 {
-    uint8_t raw[PKT_SIZE];
+    uint8_t raw[PKT_SIZE] = 0;
 	
 	while(!USART1_Available());
 	do {

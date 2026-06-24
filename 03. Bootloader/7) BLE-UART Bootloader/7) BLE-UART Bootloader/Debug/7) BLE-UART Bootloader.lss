@@ -3,31 +3,31 @@
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800200  00800200  0000072a  2**0
+  0 .data         00000000  00800200  00800200  00000724  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000006b6  0001e000  0001e000  00000074  2**1
+  1 .text         000006b0  0001e000  0001e000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000408  00800200  00800200  0000072a  2**0
+  2 .bss          00000408  00800200  00800200  00000724  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000072a  2**0
+  3 .comment      00000030  00000000  00000000  00000724  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000075c  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000754  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000110  00000000  00000000  0000079c  2**0
+  5 .debug_aranges 00000110  00000000  00000000  00000794  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000017a6  00000000  00000000  000008ac  2**0
+  6 .debug_info   000017a6  00000000  00000000  000008a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000f31  00000000  00000000  00002052  2**0
+  7 .debug_abbrev 00000f31  00000000  00000000  0000204a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000b2e  00000000  00000000  00002f83  2**0
+  8 .debug_line   00000b28  00000000  00000000  00002f7b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000002bc  00000000  00000000  00003ab4  2**2
+  9 .debug_frame  000002bc  00000000  00000000  00003aa4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000781  00000000  00000000  00003d70  2**0
+ 10 .debug_str    00000781  00000000  00000000  00003d60  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000008d0  00000000  00000000  000044f1  2**0
+ 11 .debug_loc    000008d0  00000000  00000000  000044e1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000118  00000000  00000000  00004dc1  2**0
+ 12 .debug_ranges 00000118  00000000  00000000  00004db1  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -148,7 +148,7 @@ Disassembly of section .text:
    1e0d8:	12 e0       	ldi	r17, 0x02	; 2
    1e0da:	a0 e0       	ldi	r26, 0x00	; 0
    1e0dc:	b2 e0       	ldi	r27, 0x02	; 2
-   1e0de:	e6 eb       	ldi	r30, 0xB6	; 182
+   1e0de:	e0 eb       	ldi	r30, 0xB0	; 176
    1e0e0:	f6 ee       	ldi	r31, 0xE6	; 230
    1e0e2:	01 e0       	ldi	r16, 0x01	; 1
    1e0e4:	0b bf       	out	0x3b, r16	; 59
@@ -173,7 +173,7 @@ Disassembly of section .text:
    1e0fe:	b2 07       	cpc	r27, r18
    1e100:	e1 f7       	brne	.-8      	; 0x1e0fa <.do_clear_bss_loop>
    1e102:	b6 d0       	rcall	.+364    	; 0x1e270 <main>
-   1e104:	d6 c2       	rjmp	.+1452   	; 0x1e6b2 <_exit>
+   1e104:	d3 c2       	rjmp	.+1446   	; 0x1e6ac <_exit>
 
 0001e106 <__bad_interrupt>:
    1e106:	7c cf       	rjmp	.-264    	; 0x1e000 <__vectors>
@@ -388,7 +388,7 @@ _delay_loop_2(uint16_t __count)
    1e204:	18 f0       	brcs	.+6      	; 0x1e20c <run_bootloader+0x5a>
 				USART1_Transmit(NAK);
    1e206:	85 e1       	ldi	r24, 0x15	; 21
-   1e208:	10 d2       	rcall	.+1056   	; 0x1e62a <USART1_Transmit>
+   1e208:	0d d2       	rcall	.+1050   	; 0x1e624 <USART1_Transmit>
 		}
 		else {
 			USART1_Transmit(NAK);
@@ -410,7 +410,7 @@ _delay_loop_2(uint16_t __count)
 			USART1_Transmit(ACK);
    1e216:	78 df       	rcall	.-272    	; 0x1e108 <flash_page_write>
    1e218:	86 e0       	ldi	r24, 0x06	; 6
-   1e21a:	07 d2       	rcall	.+1038   	; 0x1e62a <USART1_Transmit>
+   1e21a:	04 d2       	rcall	.+1032   	; 0x1e624 <USART1_Transmit>
 			write_addr += PAGE_SIZE;
    1e21c:	8f ef       	ldi	r24, 0xFF	; 255
    1e21e:	d8 1a       	sub	r13, r24
@@ -429,7 +429,7 @@ _delay_loop_2(uint16_t __count)
 			USART1_Transmit(ACK);
    1e230:	71 f4       	brne	.+28     	; 0x1e24e <run_bootloader+0x9c>
    1e232:	86 e0       	ldi	r24, 0x06	; 6
-   1e234:	fa d1       	rcall	.+1012   	; 0x1e62a <USART1_Transmit>
+   1e234:	f7 d1       	rcall	.+1006   	; 0x1e624 <USART1_Transmit>
 	if (__tmp < 1.0)
 		__ticks = 1;
 	else if (__tmp > 65535)
@@ -465,7 +465,7 @@ _delay_loop_2(uint16_t __count)
 			USART1_Transmit(NAK);
    1e24c:	c4 cf       	rjmp	.-120    	; 0x1e1d6 <run_bootloader+0x24>
    1e24e:	85 e1       	ldi	r24, 0x15	; 21
-   1e250:	ec d1       	rcall	.+984    	; 0x1e62a <USART1_Transmit>
+   1e250:	e9 d1       	rcall	.+978    	; 0x1e624 <USART1_Transmit>
    1e252:	c1 cf       	rjmp	.-126    	; 0x1e1d6 <run_bootloader+0x24>
 		}
 	}
@@ -500,7 +500,7 @@ int main(void)
 	UART0_init();
    1e27a:	bc d1       	rcall	.+888    	; 0x1e5f4 <UART0_init>
 	UART1_init();
-   1e27c:	ca d1       	rcall	.+916    	; 0x1e612 <UART1_init>
+   1e27c:	c7 d1       	rcall	.+910    	; 0x1e60c <UART1_init>
    1e27e:	81 e0       	ldi	r24, 0x01	; 1
 
 	MCUCR = (1 << IVCE);
@@ -516,6 +516,7 @@ int main(void)
    1e28a:	97 e2       	ldi	r25, 0x27	; 39
    1e28c:	0d c0       	rjmp	.+26     	; 0x1e2a8 <main+0x38>
 	unsigned char c = 0;
+	
 	while(timeout--){
    1e28e:	85 e0       	ldi	r24, 0x05	; 5
 		PORTC = 0x05;
@@ -525,24 +526,23 @@ int main(void)
    1e296:	01 97       	sbiw	r24, 0x01	; 1
    1e298:	f1 f7       	brne	.-4      	; 0x1e296 <main+0x26>
 		_delay_ms(10);
-
 	// start Ïã†Ìò∏ ÌôïÏù∏
 		if(USART1_Available()){
-   1e29a:	ee d1       	rcall	.+988    	; 0x1e678 <USART1_Available>
+   1e29a:	eb d1       	rcall	.+982    	; 0x1e672 <USART1_Available>
    1e29c:	89 2b       	or	r24, r25
    1e29e:	19 f0       	breq	.+6      	; 0x1e2a6 <main+0x36>
 			c = USART1_Receive();
-   1e2a0:	d9 d1       	rcall	.+946    	; 0x1e654 <USART1_Receive>
+   1e2a0:	d6 d1       	rcall	.+940    	; 0x1e64e <USART1_Receive>
    1e2a2:	83 35       	cpi	r24, 0x53	; 83
 			if(c == 'S'){
    1e2a4:	51 f1       	breq	.+84     	; 0x1e2fa <main+0x8a>
    1e2a6:	ce 01       	movw	r24, r28
    1e2a8:	ec 01       	movw	r28, r24
-	MCUCR = (1 << IVSEL);
     sei();
 
 	uint16_t timeout = 10000;
 	unsigned char c = 0;
+	
 	while(timeout--){
    1e2aa:	21 97       	sbiw	r28, 0x01	; 1
    1e2ac:	89 2b       	or	r24, r25
@@ -639,7 +639,7 @@ int main(void)
 		
 		jump_to_app();
    1e2f4:	20 f3       	brcs	.-56     	; 0x1e2be <main+0x4e>
-
+		_delay_ms(10);
 	// start Ïã†Ìò∏ ÌôïÏù∏
 		if(USART1_Available()){
 			c = USART1_Receive();
@@ -648,11 +648,11 @@ int main(void)
    1e2f6:	54 df       	rcall	.-344    	; 0x1e1a0 <jump_to_app>
    1e2f8:	ff cf       	rjmp	.-2      	; 0x1e2f8 <main+0x88>
 				USART1_Transmit('R');
-   1e2fa:	c8 d1       	rcall	.+912    	; 0x1e68c <USART1_RxFlush>
+   1e2fa:	c5 d1       	rcall	.+906    	; 0x1e686 <USART1_RxFlush>
    1e2fc:	82 e5       	ldi	r24, 0x52	; 82
-   1e2fe:	95 d1       	rcall	.+810    	; 0x1e62a <USART1_Transmit>
+   1e2fe:	92 d1       	rcall	.+804    	; 0x1e624 <USART1_Transmit>
 				USART1_FlushTx();
-   1e300:	cd d1       	rcall	.+922    	; 0x1e69c <USART1_FlushTx>
+   1e300:	ca d1       	rcall	.+916    	; 0x1e696 <USART1_FlushTx>
    1e302:	57 df       	rcall	.-338    	; 0x1e1b2 <run_bootloader>
 				run_bootloader();
    1e304:	80 e0       	ldi	r24, 0x00	; 0
@@ -767,12 +767,12 @@ uint8_t recv_packet(bl_data_packet_t *pkt)
     uint8_t raw[PKT_SIZE];
 	
 	while(!USART1_Available());
-   1e378:	7f d1       	rcall	.+766    	; 0x1e678 <USART1_Available>
+   1e378:	7c d1       	rcall	.+760    	; 0x1e672 <USART1_Available>
    1e37a:	89 2b       	or	r24, r25
    1e37c:	e9 f3       	breq	.-6      	; 0x1e378 <recv_packet+0x20>
 	do {
 		raw[0] = USART1_Receive();
-   1e37e:	6a d1       	rcall	.+724    	; 0x1e654 <USART1_Receive>
+   1e37e:	67 d1       	rcall	.+718    	; 0x1e64e <USART1_Receive>
    1e380:	89 83       	std	Y+1, r24	; 0x01
    1e382:	8f 3e       	cpi	r24, 0xEF	; 239
 	}while(raw[0] != START_CODE);
@@ -784,7 +784,7 @@ uint8_t recv_packet(bl_data_packet_t *pkt)
     /* Step 1. 262Î∞îÏù¥Ìä∏ Ï†ÑÎ∂Ä ÏàòÏã† */
     for(uint16_t i = 1; i < PKT_SIZE; i++){
         raw[i] = USART1_Receive();
-   1e38c:	63 d1       	rcall	.+710    	; 0x1e654 <USART1_Receive>
+   1e38c:	60 d1       	rcall	.+704    	; 0x1e64e <USART1_Receive>
    1e38e:	e1 e0       	ldi	r30, 0x01	; 1
    1e390:	f0 e0       	ldi	r31, 0x00	; 0
    1e392:	ec 0f       	add	r30, r28
@@ -1160,106 +1160,104 @@ void UART_stdout_init(void) {
 
 0001e5f4 <UART0_init>:
    1e5f4:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
-   1e5f8:	87 e0       	ldi	r24, 0x07	; 7
+   1e5f8:	83 e3       	ldi	r24, 0x33	; 51
    1e5fa:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
-   1e5fe:	82 e0       	ldi	r24, 0x02	; 2
-   1e600:	80 93 c0 00 	sts	0x00C0, r24	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
-   1e604:	88 e9       	ldi	r24, 0x98	; 152
-   1e606:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
-   1e60a:	86 e0       	ldi	r24, 0x06	; 6
-   1e60c:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
-   1e610:	08 95       	ret
+   1e5fe:	88 e9       	ldi	r24, 0x98	; 152
+   1e600:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+   1e604:	86 e0       	ldi	r24, 0x06	; 6
+   1e606:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+   1e60a:	08 95       	ret
 
-0001e612 <UART1_init>:
-   1e612:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
-   1e616:	83 e3       	ldi	r24, 0x33	; 51
-   1e618:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
-   1e61c:	88 e9       	ldi	r24, 0x98	; 152
-   1e61e:	80 93 c9 00 	sts	0x00C9, r24	; 0x8000c9 <__TEXT_REGION_LENGTH__+0x7e00c9>
-   1e622:	86 e0       	ldi	r24, 0x06	; 6
-   1e624:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
-   1e628:	08 95       	ret
+0001e60c <UART1_init>:
+   1e60c:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
+   1e610:	83 e3       	ldi	r24, 0x33	; 51
+   1e612:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
+   1e616:	88 e9       	ldi	r24, 0x98	; 152
+   1e618:	80 93 c9 00 	sts	0x00C9, r24	; 0x8000c9 <__TEXT_REGION_LENGTH__+0x7e00c9>
+   1e61c:	86 e0       	ldi	r24, 0x06	; 6
+   1e61e:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
+   1e622:	08 95       	ret
 
-0001e62a <USART1_Transmit>:
-   1e62a:	20 91 01 02 	lds	r18, 0x0201	; 0x800201 <tx1_head>
-   1e62e:	2f 5f       	subi	r18, 0xFF	; 255
-   1e630:	90 91 00 02 	lds	r25, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
-   1e634:	29 17       	cp	r18, r25
-   1e636:	e1 f3       	breq	.-8      	; 0x1e630 <USART1_Transmit+0x6>
-   1e638:	e0 91 01 02 	lds	r30, 0x0201	; 0x800201 <tx1_head>
-   1e63c:	f0 e0       	ldi	r31, 0x00	; 0
-   1e63e:	ec 5f       	subi	r30, 0xFC	; 252
-   1e640:	fd 4f       	sbci	r31, 0xFD	; 253
-   1e642:	80 83       	st	Z, r24
-   1e644:	20 93 01 02 	sts	0x0201, r18	; 0x800201 <tx1_head>
-   1e648:	e9 ec       	ldi	r30, 0xC9	; 201
-   1e64a:	f0 e0       	ldi	r31, 0x00	; 0
-   1e64c:	80 81       	ld	r24, Z
-   1e64e:	80 62       	ori	r24, 0x20	; 32
-   1e650:	80 83       	st	Z, r24
-   1e652:	08 95       	ret
+0001e624 <USART1_Transmit>:
+   1e624:	20 91 01 02 	lds	r18, 0x0201	; 0x800201 <tx1_head>
+   1e628:	2f 5f       	subi	r18, 0xFF	; 255
+   1e62a:	90 91 00 02 	lds	r25, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
+   1e62e:	29 17       	cp	r18, r25
+   1e630:	e1 f3       	breq	.-8      	; 0x1e62a <USART1_Transmit+0x6>
+   1e632:	e0 91 01 02 	lds	r30, 0x0201	; 0x800201 <tx1_head>
+   1e636:	f0 e0       	ldi	r31, 0x00	; 0
+   1e638:	ec 5f       	subi	r30, 0xFC	; 252
+   1e63a:	fd 4f       	sbci	r31, 0xFD	; 253
+   1e63c:	80 83       	st	Z, r24
+   1e63e:	20 93 01 02 	sts	0x0201, r18	; 0x800201 <tx1_head>
+   1e642:	e9 ec       	ldi	r30, 0xC9	; 201
+   1e644:	f0 e0       	ldi	r31, 0x00	; 0
+   1e646:	80 81       	ld	r24, Z
+   1e648:	80 62       	ori	r24, 0x20	; 32
+   1e64a:	80 83       	st	Z, r24
+   1e64c:	08 95       	ret
 
-0001e654 <USART1_Receive>:
-   1e654:	90 91 03 02 	lds	r25, 0x0203	; 0x800203 <rx1_head>
-   1e658:	80 91 02 02 	lds	r24, 0x0202	; 0x800202 <rx1_tail>
-   1e65c:	98 17       	cp	r25, r24
-   1e65e:	d1 f3       	breq	.-12     	; 0x1e654 <USART1_Receive>
-   1e660:	e0 91 02 02 	lds	r30, 0x0202	; 0x800202 <rx1_tail>
-   1e664:	f0 e0       	ldi	r31, 0x00	; 0
-   1e666:	ec 5f       	subi	r30, 0xFC	; 252
-   1e668:	fc 4f       	sbci	r31, 0xFC	; 252
-   1e66a:	80 81       	ld	r24, Z
-   1e66c:	90 91 02 02 	lds	r25, 0x0202	; 0x800202 <rx1_tail>
-   1e670:	9f 5f       	subi	r25, 0xFF	; 255
-   1e672:	90 93 02 02 	sts	0x0202, r25	; 0x800202 <rx1_tail>
-   1e676:	08 95       	ret
+0001e64e <USART1_Receive>:
+   1e64e:	90 91 03 02 	lds	r25, 0x0203	; 0x800203 <rx1_head>
+   1e652:	80 91 02 02 	lds	r24, 0x0202	; 0x800202 <rx1_tail>
+   1e656:	98 17       	cp	r25, r24
+   1e658:	d1 f3       	breq	.-12     	; 0x1e64e <USART1_Receive>
+   1e65a:	e0 91 02 02 	lds	r30, 0x0202	; 0x800202 <rx1_tail>
+   1e65e:	f0 e0       	ldi	r31, 0x00	; 0
+   1e660:	ec 5f       	subi	r30, 0xFC	; 252
+   1e662:	fc 4f       	sbci	r31, 0xFC	; 252
+   1e664:	80 81       	ld	r24, Z
+   1e666:	90 91 02 02 	lds	r25, 0x0202	; 0x800202 <rx1_tail>
+   1e66a:	9f 5f       	subi	r25, 0xFF	; 255
+   1e66c:	90 93 02 02 	sts	0x0202, r25	; 0x800202 <rx1_tail>
+   1e670:	08 95       	ret
 
-0001e678 <USART1_Available>:
-   1e678:	20 91 03 02 	lds	r18, 0x0203	; 0x800203 <rx1_head>
-   1e67c:	90 91 02 02 	lds	r25, 0x0202	; 0x800202 <rx1_tail>
-   1e680:	81 e0       	ldi	r24, 0x01	; 1
-   1e682:	29 13       	cpse	r18, r25
-   1e684:	01 c0       	rjmp	.+2      	; 0x1e688 <USART1_Available+0x10>
-   1e686:	80 e0       	ldi	r24, 0x00	; 0
-   1e688:	90 e0       	ldi	r25, 0x00	; 0
-   1e68a:	08 95       	ret
+0001e672 <USART1_Available>:
+   1e672:	20 91 03 02 	lds	r18, 0x0203	; 0x800203 <rx1_head>
+   1e676:	90 91 02 02 	lds	r25, 0x0202	; 0x800202 <rx1_tail>
+   1e67a:	81 e0       	ldi	r24, 0x01	; 1
+   1e67c:	29 13       	cpse	r18, r25
+   1e67e:	01 c0       	rjmp	.+2      	; 0x1e682 <USART1_Available+0x10>
+   1e680:	80 e0       	ldi	r24, 0x00	; 0
+   1e682:	90 e0       	ldi	r25, 0x00	; 0
+   1e684:	08 95       	ret
 
-0001e68c <USART1_RxFlush>:
+0001e686 <USART1_RxFlush>:
 
 
 // tail¿ª head∑Œ ∏¬√Á ≈•∏¶ ∫Û ªÛ≈¬∑Œ
 void USART1_RxFlush(void)
 {
     uint8_t sreg = SREG;
-   1e68c:	8f b7       	in	r24, 0x3f	; 63
+   1e686:	8f b7       	in	r24, 0x3f	; 63
     cli();
-   1e68e:	f8 94       	cli
+   1e688:	f8 94       	cli
     rx1_tail = rx1_head;     // RX ≈• ∫ÒøÏ±‚
-   1e690:	90 91 03 02 	lds	r25, 0x0203	; 0x800203 <rx1_head>
-   1e694:	90 93 02 02 	sts	0x0202, r25	; 0x800202 <rx1_tail>
+   1e68a:	90 91 03 02 	lds	r25, 0x0203	; 0x800203 <rx1_head>
+   1e68e:	90 93 02 02 	sts	0x0202, r25	; 0x800202 <rx1_tail>
     SREG = sreg;
-   1e698:	8f bf       	out	0x3f, r24	; 63
-   1e69a:	08 95       	ret
+   1e692:	8f bf       	out	0x3f, r24	; 63
+   1e694:	08 95       	ret
 
-0001e69c <USART1_FlushTx>:
+0001e696 <USART1_FlushTx>:
 }
 
 
 void USART1_FlushTx(void)
 {
 	while(tx1_head != tx1_tail);        // TX ≈•∞° ∫Ù ∂ß±Ó¡ˆ
-   1e69c:	90 91 01 02 	lds	r25, 0x0201	; 0x800201 <tx1_head>
-   1e6a0:	80 91 00 02 	lds	r24, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
-   1e6a4:	98 13       	cpse	r25, r24
-   1e6a6:	fa cf       	rjmp	.-12     	; 0x1e69c <USART1_FlushTx>
+   1e696:	90 91 01 02 	lds	r25, 0x0201	; 0x800201 <tx1_head>
+   1e69a:	80 91 00 02 	lds	r24, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
+   1e69e:	98 13       	cpse	r25, r24
+   1e6a0:	fa cf       	rjmp	.-12     	; 0x1e696 <USART1_FlushTx>
 	while(!(UCSR1A & (1 << TXC1)));     // ∏∂¡ˆ∏∑ πŸ¿Ã∆Æ shift øœ∑·
-   1e6a8:	80 91 c8 00 	lds	r24, 0x00C8	; 0x8000c8 <__TEXT_REGION_LENGTH__+0x7e00c8>
-   1e6ac:	86 ff       	sbrs	r24, 6
-   1e6ae:	fc cf       	rjmp	.-8      	; 0x1e6a8 <USART1_FlushTx+0xc>
-   1e6b0:	08 95       	ret
+   1e6a2:	80 91 c8 00 	lds	r24, 0x00C8	; 0x8000c8 <__TEXT_REGION_LENGTH__+0x7e00c8>
+   1e6a6:	86 ff       	sbrs	r24, 6
+   1e6a8:	fc cf       	rjmp	.-8      	; 0x1e6a2 <USART1_FlushTx+0xc>
+   1e6aa:	08 95       	ret
 
-0001e6b2 <_exit>:
-   1e6b2:	f8 94       	cli
+0001e6ac <_exit>:
+   1e6ac:	f8 94       	cli
 
-0001e6b4 <__stop_program>:
-   1e6b4:	ff cf       	rjmp	.-2      	; 0x1e6b4 <__stop_program>
+0001e6ae <__stop_program>:
+   1e6ae:	ff cf       	rjmp	.-2      	; 0x1e6ae <__stop_program>

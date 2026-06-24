@@ -62,10 +62,10 @@ int main(void)
 
 	uint16_t timeout = 10000;
 	unsigned char c = 0;
+	
 	while(timeout--){
 		PORTC = 0x05;
 		_delay_ms(10);
-
 	// start 신호 확인
 		if(USART1_Available()){
 			c = USART1_Receive();
